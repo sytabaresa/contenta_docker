@@ -1,7 +1,8 @@
 version: '3'
 services:
   nginx:
-    build: ./nginx
+#    build: ./nginx
+    image: sytabaresa/contenta-nginx:latest
     ports:
       - "80:80"
       - "443:443"
@@ -14,7 +15,8 @@ services:
     depends_on:
       - php
   php:
-    build: ./php
+#    build: ./php
+    image: sytabaresa/contenta-cms:latest
     ports:
       - "9000:9000"
     volumes:
@@ -24,7 +26,8 @@ services:
     networks:
       - contenta
   database:
-    build: ./database
+#    build: ./database
+    image: sytabaresa/contenta-db:latest
     ports:
       - "3306:3306"
     volumes:
